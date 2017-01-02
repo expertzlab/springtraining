@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by gireeshbabu on 30/12/16.
  */
-@Configuration
+//@Configuration
 public class WebConfiguration {
 
     public RemoteIpFilter remoteIpFilter(){

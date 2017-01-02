@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class SecondController {
+
     @RequestMapping("/hello")
     def hello() {
         return "Hello World Groovy"

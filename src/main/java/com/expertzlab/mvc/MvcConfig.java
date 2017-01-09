@@ -33,5 +33,17 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
        logger.debug("adding interceptor");
         registry.addInterceptor(getLocaleChangeIntercetpor());
     }
+    /*
+   @Override
+   public void configureMessageConverters(List<HttpMessageConverter<?>> converters){
+       converters.add(new ByteArrayHttpMessageConverter());
+   }
+
+
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters){
+        converters.clear();
+        converters.add(new ByteArrayHttpMessageConverter());
+    }
+*/
 
 }

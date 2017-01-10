@@ -33,7 +33,7 @@ public class BookControllerTest {
 
     @Test
     public void bookview() throws  Exception{
-        mockMvc.perform(MockMvcRequestBuilders.get("/book/2333"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/book/4488383"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("bookview"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("book"));

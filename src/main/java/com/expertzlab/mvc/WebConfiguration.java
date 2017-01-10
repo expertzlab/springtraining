@@ -1,8 +1,12 @@
 package com.expertzlab.mvc;
 
+import com.expertzlab.readbook.BookRepo;
+import com.expertzlab.util.BookFormatter;
 import org.apache.catalina.filters.RemoteIpFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 
 /**
@@ -21,5 +25,6 @@ public class WebConfiguration {
     public ByteArrayHttpMessageConverter byteArrayHttpMessageConverter(){
         return new ByteArrayHttpMessageConverter();
     }
+
 
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * Created by gireeshbabu on 04/01/17.
  */
@@ -35,4 +37,11 @@ public class BookController {
         model.addAttribute("book",book);
         return "bookview";
     }
+
+    @RequestMapping(value ="/{isbn}/reviewers", method = RequestMethod.GET)
+    public List<Reviewer> getReviewers(@PathVariable("isbn") Book book){
+        return book.getReviewers();
+    }
+
+
 }

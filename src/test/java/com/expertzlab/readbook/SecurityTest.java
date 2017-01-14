@@ -59,10 +59,11 @@ public class SecurityTest {
     @Test
     @WithUserDetails(value = "giri")
     public void homePage_authenticatedUser_user() throws Exception {
-        Reader expectedReader = new Reader();
+       /* Reader expectedReader = new Reader();
         expectedReader.setUsername("giri");
         expectedReader.setPassword("giri");
         expectedReader.setFullname("giri");
+        */
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"));

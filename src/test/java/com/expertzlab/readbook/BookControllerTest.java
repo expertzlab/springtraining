@@ -32,6 +32,11 @@ public class BookControllerTest {
     }
 
     @Test
+    public void test(){
+
+    }
+
+    @Test
     public void bookview() throws  Exception{
         mockMvc.perform(MockMvcRequestBuilders.get("/book/4488383"))
                 .andExpect(MockMvcResultMatchers.status().isOk())

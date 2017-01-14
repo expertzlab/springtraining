@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class BookController {
     @RequestMapping(value="/{isbn}", method = RequestMethod.GET)
     public String getBook(@PathVariable Isbn isbn, Model model){
         logger.debug("Getting Id configured " + properties.getStudentId());
+        logger.debug("ISBN = " + isbn.getIsbn());
         Book book = bookRepo.findBookByIsbn(isbn.getIsbn());
         model.addAttribute("book",book);
         return "bookview";

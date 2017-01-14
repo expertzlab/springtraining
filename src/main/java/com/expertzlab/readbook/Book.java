@@ -1,9 +1,7 @@
 package com.expertzlab.readbook;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by gireeshbabu on 13/12/16.
@@ -20,6 +18,17 @@ public class Book {
     private String title;
     private String isbn;
     private String description;
+
+    @OneToMany(targetEntity = Reviewer.class)
+    private List<Reviewer> reviewers;
+
+    public List<Reviewer> getReviewers() {
+        return reviewers;
+    }
+
+    public void setReviewers(List<Reviewer> reviewers) {
+        this.reviewers = reviewers;
+    }
 
     public String getIsbn() {
         return isbn;

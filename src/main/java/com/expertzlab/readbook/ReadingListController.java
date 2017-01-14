@@ -38,7 +38,7 @@ public class ReadingListController {
     public String readersBook(@PathVariable("reader") String reader, Model model){
         List<Book> bookList = repo.findByReader(reader);
         if(bookList != null){
-            model.addAttribute("books",bookList);
+            //model.addAttribute("books",bookList);
         }
         logger.writeLog("book read count - "+ bookList.size());
         backlogger.debug("Controller called {}",this.getClass().getName());

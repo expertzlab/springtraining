@@ -1,9 +1,6 @@
 package com.expertzlab.readbook;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by gireeshbabu on 10/01/17.
@@ -34,4 +31,16 @@ public class Reviewer {
 
     private String name;
 
+    /*
+    @JoinColumn(name = "id")
+    private Book book;
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+    */
 }

@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reviewers List</title>
+    <link rel="stylesheet" th:href="@{/style.css}"></link>
+</head>
+<body>
+<h2>Reviewers List</h2>
+<div th:unless="${#lists.isEmpty(reviewers)}">
+    <dl th:each="reviewer : ${reviewers}">
+        <dt class="bookHeadline">
+            <span th:text="${reviewer.id}">ID</span> by
+            <span th:text="${reviewer.name}">Name</span>
+        </dt>
+        <dd class="bookDescription">
+
+              <span>  No description available</span>
+        </dd>
+    </dl>
+</div>
+<div th:if="${#lists.isEmpty(reviewers)}">
+    <p>You have no Reviewers For your book</p>
+</div>
+<hr/>
+</body>
+</html>

@@ -4,10 +4,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Arrays;
-import java.util.Collection;
+import javax.persistence.*;
+import java.util.*;
 
 /**
  * Created by gireeshbabu on 19/12/16.
@@ -19,6 +17,14 @@ public class Reader implements UserDetails {
     private String username;
     private String password;
     private String fullname;
+
+    public Reader(){
+
+    }
+
+    public Reader(Collection<RCenter> rCenters) {
+        this.rCenters = rCenters;
+    }
 
     public String getUsername() {
         return username;
@@ -46,7 +52,15 @@ public class Reader implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("READER"));
+
+        List<GrantedAuthority> gaList = new ArrayList<>();
+
+        for (RCenter role:rCenters) {
+            for(Privilege privilege: role.getPrivileges() ){
+                gaList.add(new SimpleGrantedAuthority(privilege.toString()));
+            }
+        }
+        return gaList;
     }
 
 
@@ -69,4 +83,9 @@ public class Reader implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name="readers_rcenters")
+    private Collection<RCenter> rCenters;
 }

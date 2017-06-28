@@ -33,7 +33,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/login").setViewName("login");
     }
 
-     /*
+
     @Bean
     public LocaleChangeInterceptor getLocaleChangeIntercetpor(){
         return new LocaleChangeInterceptor();
@@ -49,9 +49,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
    @Override
    public void configureMessageConverters(List<HttpMessageConverter<?>> converters){
+
+       logger.debug(" --- Message converter is added ---");
        converters.add(new ByteArrayHttpMessageConverter());
    }
-
+/*
 
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters){
         converters.clear();
@@ -61,6 +63,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry){
+        System.out.println("Called Formatter registry");
+
         registry.addFormatter(new BookFormatter(bookRepo));
     }
 

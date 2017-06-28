@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ReaderRepo extends JpaRepository<Reader, String> {
 
     Reader findOne(String username);
+    Reader save(Reader reader);
 }

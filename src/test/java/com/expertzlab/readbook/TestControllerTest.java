@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -13,14 +14,17 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 /**
- * Created by gireeshbabu on 10/01/17.
+ * Created by gireeshbabu on 24/01/17.
  */
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
-public class BookControllerTest {
+public class TestControllerTest {
 
     @Autowired
     private WebApplicationContext context;
@@ -32,24 +36,14 @@ public class BookControllerTest {
     }
 
     @Test
-    public void test(){
+    public void myMethod() throws  Exception{
+        mockMvc.perform(MockMvcRequestBuilders.post("/test/mymethod")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"id\":1,\"author\":\"My Name\",\"reader\":\"My Reader\"," +
+                        "\"title\":null,\"isbn\":null,\"description\":null,\"reviewers\":null}"))
+                .andDo(print())
+                .andExpect(MockMvcResultMatchers.status().isOk());
 
     }
-
-    @Test
-    public void bookview() throws  Exception{
-        mockMvc.perform(MockMvcRequestBuilders.get("/book/4488383"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.view().name("bookview"))
-                .andExpect(MockMvcResultMatchers.model().attributeExists("book"));
-
-    }
-
-    /*
-    @Test
-    public void reviewersShouldbeLoadedWithBook(){
-        mockMvc.perform(MockMvcRequestBuilders.get("/23222/"));
-    }
-    */
 
 }

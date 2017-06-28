@@ -41,8 +41,10 @@ public class BookController {
     }
 
     @RequestMapping(value ="/{isbn}/reviewers", method = RequestMethod.GET)
-    public List<Reviewer> getReviewers(@PathVariable("isbn") Book book){
-        return book.getReviewers();
+    public String getReviewers(@PathVariable("isbn") Book book, Model model){
+
+        model.addAttribute("reviewers", book.getReviewers());
+        return "reviewersList";
     }
 
 

@@ -25,6 +25,7 @@ public class UserDetailsLoaderService implements UserDetailsService {
             throws UsernameNotFoundException {
         logger.debug("User name - "+ username);
         UserDetails userDetails = readerRepo.findOne(username);
+        if(userDetails != null)
         logger.debug("after loading - "+ ((Reader)userDetails).getFullname());
         return userDetails;
 

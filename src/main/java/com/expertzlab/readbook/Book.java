@@ -19,17 +19,19 @@ public class Book {
     private String isbn;
     private String description;
 
+
     @OneToMany(targetEntity = Reviewer.class)
+    @JoinColumn(name = "book_id")
     private List<Reviewer> reviewers;
 
     public List<Reviewer> getReviewers() {
-        return reviewers;
+
+    return reviewers;
     }
 
     public void setReviewers(List<Reviewer> reviewers) {
         this.reviewers = reviewers;
     }
-
     public String getIsbn() {
         return isbn;
     }

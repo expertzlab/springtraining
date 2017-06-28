@@ -5,10 +5,12 @@ package com.expertzlab.readbook;
  */
 public class Isbn {
 
+    String isbn;
+
     public Isbn(String text){
         this.isbn = text;
     }
-    String isbn;
+
 
     public String getIsbn() {
         return isbn;

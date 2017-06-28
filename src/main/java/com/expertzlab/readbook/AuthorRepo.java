@@ -1,12 +1,7 @@
 package com.expertzlab.readbook;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-
 /**
- * Created by gireeshbabu on 30/12/16.
+ * Created by gireeshbabu on 04/05/17.
  */
-
-@RepositoryRestResource(collectionResourceRel = "author",path = "/author")
-public interface AuthorRepo extends PagingAndSortingRepository<Author,Long>{
+public class AuthorRepo {
 }

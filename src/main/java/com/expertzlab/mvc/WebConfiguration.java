@@ -12,7 +12,7 @@ import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 /**
  * Created by gireeshbabu on 30/12/16.
  */
-//@Configuration
+@Configuration
 public class WebConfiguration {
 
     @Bean
